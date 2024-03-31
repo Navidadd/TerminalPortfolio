@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0; /* fondo  */
+  color: #CDD6F4; /* texto */
+  font-family: monospace;
+  height: 100vh; 
+  border: 5px solid #ccc; /*  borde  */
+  box-sizing: border-box; 
+}
+
+.terminal {
+  width: 100%; /* Hacer que la terminal ocupe todo el ancho de la ventana */
+  height: calc(100% - 10px); /* Hacer que la terminal ocupe toda la altura de la ventana, considerando el borde */
+  max-width: 100%; /* Para asegurarse de que no exceda el ancho de la ventana */
+  max-height: 100%; /* Para asegurarse de que no exceda la altura de la ventana */
+  background-color: #303446;
+  border: none; /* Quitar el borde anterior */
+  border-radius: 0; /* Quitar el redondeo de los bordes */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.bar {
+  display: none; /* Ocultar la barra superior */
+}
+
+.content {
+  padding: 10px;
+  flex-grow: 1;
+  overflow: auto;
+  flex-direction: column-reverse;
+}
+
+.content p {
+  margin: 5px 0;
+}
+
+#input {
+  outline: none;
+  color: #CDD6F4;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+#cursor {
+  animation: cursor-blink 1s step-end infinite;
+}
+
+@keyframes cursor-blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.command_space {
+  margin-bottom: 50px; /* Espacio de 20px entre el resultado del comando y el próximo comando */
+}
+
+/* -------- COLORES --------*/
+
+.banner {
+  color: #ee734d
+}
+
+.highlight {
+  color: #F38BA8; /* Color azul */
+}
+
+/* Estilos para los comandos */
+.command {
+  color: #A6E3A1; /* Color verde */
+}
+
+.current {
+  color: #89B4FA;
+}
