@@ -11,6 +11,7 @@ body {
 
 .terminal {
   width: 100%; /* Hacer que la terminal ocupe todo el ancho de la ventana */
+  font-size: large;
   height: calc(100% - 10px); /* Hacer que la terminal ocupe toda la altura de la ventana, considerando el borde */
   max-width: 100%; /* Para asegurarse de que no exceda el ancho de la ventana */
   max-height: 100%; /* Para asegurarse de que no exceda la altura de la ventana */
@@ -85,4 +86,9 @@ body {
 
 .current {
   color: #89B4FA;
+}
+
+.link {
+  color: #ee734d;
+  text-decoration: underline;
 }
