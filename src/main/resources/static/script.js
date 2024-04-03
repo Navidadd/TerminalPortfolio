@@ -1,14 +1,15 @@
 
 const aboutMe = {
-  intro: "I'm a self-taught computer science student passionate about programming, computing, and electronics. I'm a Linux enthusiast always searching for knowledge.",
+  intro: "I'm a self-taught computer science student passionate about programming, computing, and electronics. As a Linux enthusiast i enjoy working with Raspberry Pis, experimenting with different distributions, and building various projects. I also find pleasure in creating practical Arduino projects that enhance my daily life.",
+  intro2: "My focus is on learning and experimenting, whether it's with familiar technologies or new tools that expand my skills.",
   skills: {
     "C" : [""],
     "C++" : [""],
     "HTML & CSS" : [""],
     Java: ["Applications", "JDBC", "Maven", "Spring (Core & Boot)", "Thymeleaf", "Threads", "Swing", "JSP"],
-    Linux: ["Bash scripting", "Database Administration (Apache Tomcat)", "Git", "Systems Administration, Configuration and Maintenance"],
+    Linux: ["Bash scripting for automation and system administration tasks", "Database Administration on Linux systems,  Java web applications deployment on Apache Tomcat server", "version control with Git for collaborative software development", "Systems Administration, Configuration and Maintenance"],
     Databases: ["SQL (Data & Table Manipulation,Stored Procedures, Functions)", "MySQL/MariaDB", "DB2", "MongoDB", "SQL Server", "NoSQL"],
-    Cloud: ["AWS Cloud Computing"]
+    Cloud: ["AWS cloud services like EC2, S3, RDS, Lambda, IAM, etc."]
   },
   education: {
     "UTN e-Learning Center": [
@@ -69,7 +70,7 @@ function executeCommand(input) {
           output = "<span class='output-command'>Available commands:</span><br> - <span class='command'>about</span><br> - <span class='command'>projects</span><br> - <span class='command'>contact</span>";
           break;
       case "about":
-        output = "<span class='current'>About Me</span><p>" + aboutMe.intro + "</p><br><span class='current'>Skills</span><ul>";
+        output = "<span class='current'>About Me</span><p>" + aboutMe.intro + "</p><p>"+aboutMe.intro2+"</p><br><span class='current'>Skills</span><ul>";
 
         // Loop through skills object
         for (const skill in aboutMe.skills) {
@@ -94,7 +95,10 @@ function executeCommand(input) {
         output += "</ul>";
         break;
       case "projects":
-          output = "Proyecto 1: [Nombre del proyecto 1]<br>Proyecto 2: [Nombre del proyecto 2]<br>Proyecto 3: [Nombre del proyecto 3]";
+          output = "<span class='current'>Projects</span><br> "
+          output += "<br> <span class='command'>Arduino Watch: </span><a class='link' href='https://github.com/Navidadd/PrototypeWatch' target='_blank'>github.com/Navidadd/PrototypeWatch</a><p>I've crafted a  functional watch using various components including an OLED display, Real-Time Clock (RTC), and a 3.7V battery. Powered by an Arduino Pro Mini, this watch shows the time, date, and battery status. This is my daily watch since i've crafted it in 2020</p><br>";
+          output += "<br> <span class='command'>Arduino MacroPad: </span><a class='link' href='https://github.com/Navidadd/Arduino-MacroPad' target='_blank'>github.com/Navidadd/Arduino-MacroPad</a><p>I've also created a custom macro pad for my PC, with a range of features designed to suit my needs, using an Arduino Pro Micro, 11 keyswitches, a rotary encoder and a 3D printed case. This macro pad enhances my daily tasks, especially when programming and working with text. It's become an invaluable tool, significantly improving my efficiency and productivity.</p><br>";
+          output += "<br> <span class='command'>RaspberryPi Cyberdeck: </span><a class='link' href='' target='_blank'>github.com/Navidadd/Arduino-MacroPad</a><p>I've created a cyberdeck for mi RaspberryPi's utilizing 20x20 aluminum Bosch profiles, a 7-inch HDMI LCD screen, a wireless keyboard, and 3D printing parts. Its primary function is to serve as a versatile device for easy interaction with any Raspberry Pi. Simply connect the Raspberry Pi to the cyberdeck, and you have a convenient platform for various tasks.</p><br>";
           break;
       case "contact":
         var output = "<span class='command';'>Email:</span> <a class='link' href='mailto:ian-orts@hotmail.com' target='_blank'>ian-orts@hotmail.com</a><br><span class='command' target='_blank'>LinkedIn:</span> <a class='link' href='https://www.linkedin.com/in/ian-orts' target='_blank'>linkedin.com/in/ian-orts</a><br><span class='command'>GitHub:</span> <a class='link' href='https://github.com/Navidadd'>github.com/Navidadd</a>";
