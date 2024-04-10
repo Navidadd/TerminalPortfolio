@@ -18,6 +18,19 @@ const aboutMe = {
       "AWS Cloud Computing Course (Nov 2023 - Jan 2024)"
     ],
     "Universidad Nacional de San Martín": "Tecnicatura en Programación Informática (Mar 2021 - Mar 2023)"
+  },
+  experience: {
+    "Madiwor Cloud MIS": {
+      title: "Systems Administrator and PHP Backend Programmer",
+      duration: "August 2023 - March 2024",
+      responsibilities: [
+        "Infrastructure administration and maintenance tasks to ensure optimal performance and reliability of systems and networks.",
+        "Supervising servers, networks, and operating systems to identify and resolve issues and ensuring smooth operation.",
+        "Developing and maintaining PHP applications using Laravel framework, contributing to the enhancement and expansion of company's software.",
+        "Managing cloud instances, including provisioning, monitoring, and optimization to meet performance and scalability requirements.",
+        "Collaborating with team members to draft documentation detailing procedures, errors, and solutions, facilitating knowledge sharing and troubleshooting processes."
+      ]
+    }
   }
 };
 
@@ -92,16 +105,45 @@ function executeCommand(input) {
           }
         }
         
+        for (const skill in aboutMe.skills) {
+          output += `<li><span class="command">${skill}</span>: ${aboutMe.skills[skill].join(', ')}</li>`;
+        }
         output += "</ul>";
+
+        output += "<span class='current'>Experience</span><ul>";
+        for (const company in aboutMe.experience) {
+          output += `<li><b class="command">${company}</b>: `;
+          const experience = aboutMe.experience[company];
+          output += `<ul><li>${experience.title}</li>`;
+          output += `<li>${experience.duration}</li>`;
+          output += "<li><b>Responsibilities:</b><ul>";
+          for (const responsibility of experience.responsibilities) {
+            output += `<li>${responsibility}</li>`;
+          }
+          output += "</ul></li></ul></li>";
+        }
+
         break;
+
       case "projects":
           output = "<span class='current'>Projects</span><br> "
-          output += "<br> <span class='command'>Arduino Watch: </span><a class='link' href='https://github.com/Navidadd/PrototypeWatch' target='_blank'>github.com/Navidadd/PrototypeWatch</a><p>I've crafted a  functional watch using various components including an OLED display, Real-Time Clock (RTC), and a 3.7V battery. Powered by an Arduino Pro Mini, this watch shows the time, date, and battery status. This is my daily watch since i've crafted it in 2020</p><br>";
-          output += "<br> <span class='command'>Arduino MacroPad: </span><a class='link' href='https://github.com/Navidadd/Arduino-MacroPad' target='_blank'>github.com/Navidadd/Arduino-MacroPad</a><p>I've also created a custom macro pad for my PC, with a range of features designed to suit my needs, using an Arduino Pro Micro, 11 keyswitches, a rotary encoder and a 3D printed case. This macro pad enhances my daily tasks, especially when programming and working with text. It's become an invaluable tool, significantly improving my efficiency and productivity.</p><br>";
-          output += "<br> <span class='command'>RaspberryPi Cyberdeck: </span><a class='link' href='' target='_blank'>github.com/Navidadd/Arduino-MacroPad</a><p>I've created a cyberdeck for mi RaspberryPi's utilizing 20x20 aluminum Bosch profiles, a 7-inch HDMI LCD screen, a wireless keyboard, and 3D printing parts. Its primary function is to serve as a versatile device for easy interaction with any Raspberry Pi. Simply connect the Raspberry Pi to the cyberdeck, and you have a convenient platform for various tasks.</p><br>";
+          output += "<br> <span class='command'>- Arduino Watch: </span><a class='link' href='https://github.com/Navidadd/PrototypeWatch' target='_blank'>github.com/Navidadd/PrototypeWatch</a><p>I've crafted a  functional watch using various components including an OLED display, Real-Time Clock (RTC), and a 3.7V battery. Powered by an Arduino Pro Mini, this watch shows the time, date, and battery status. This is my daily watch since i've crafted it in 2020</p><br>";
+          output += "<br> <span class='command'>- Arduino MacroPad: </span><a class='link' href='https://github.com/Navidadd/Arduino-MacroPad' target='_blank'>github.com/Navidadd/Arduino-MacroPad</a><p>I've also created a custom macro pad for my PC, with a range of features designed to suit my needs, using an Arduino Pro Micro, 11 keyswitches, a rotary encoder and a 3D printed case. This macro pad enhances my daily tasks, especially when programming and working with text. It's become an invaluable tool, significantly improving my efficiency and productivity.</p><br>";
+          output += "<br> <span class='command'>- RaspberryPi Cyberdeck: </span><a class='link' href='https://github.com/Navidadd/PiCyberdeck' target='_blank'>github.com/Navidadd/PiCyberdeck</a><p>I've created a cyberdeck for mi RaspberryPi's utilizing 20x20 aluminum Bosch profiles, a 7-inch HDMI LCD screen, a wireless keyboard, and 3D printing parts. Its primary function is to serve as a versatile device for easy interaction with any Raspberry Pi. Simply connect the Raspberry Pi to the cyberdeck, and you have a convenient platform for various tasks.</p><br>";
+          output += "<br> <span class='command'>- This Page!: </span><a class='link' href='https://github.com/Navidadd/TerminalPortfolio' target='_blank'>github.com/Navidadd/TerminalPortfolio</a><p>Welcome to my portfolio website! Built with HTML, CSS, and JavaScript, powered by Spring Boot, and designed to emulate a Linux terminal. Explore my projects, skills, and experiences in a familiar terminal-like environment.</p><br>";
           break;
       case "contact":
-        var output = "<span class='command';'>Email:</span> <a class='link' href='mailto:ian-orts@hotmail.com' target='_blank'>ian-orts@hotmail.com</a><br><span class='command' target='_blank'>LinkedIn:</span> <a class='link' href='https://www.linkedin.com/in/ian-orts' target='_blank'>linkedin.com/in/ian-orts</a><br><span class='command'>GitHub:</span> <a class='link' href='https://github.com/Navidadd'>github.com/Navidadd</a>";
+        // Sección de email
+        output = "<span class='command';'>Email:</span> <a class='link' href='mailto:ian-orts@hotmail.com' target='_blank'>ian-orts@hotmail.com</a><br>";
+
+        // Sección de LinkedIn
+        output += "<span class='command'>LinkedIn:</span> <a class='link' href='https://www.linkedin.com/in/ian-orts' target='_blank'>linkedin.com/in/ian-orts</a><br>";
+
+        // Sección de GitHub
+        output += "<span class='command'>GitHub:</span> <a class='link' href='https://github.com/Navidadd' target='_blank'>github.com/Navidadd</a><br>";
+
+        // Sección de currículum
+        output += "<span class='command'>Curriculum:</span> <a class='link' href='/pdf/CV Ian Orts.pdf' target='_blank'>View Curriculum</a>";
         break;
       default:
           output = "Comando no reconocido. Escribe 'help' para obtener ayuda.";
